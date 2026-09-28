@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.local
+.DS_Store
+panicguard-session-*.json
+.env
+.env.local
+.env.production
+server/.env
+# Large binary assets fetched by scripts/setup-models.mjs (postinstall) —
+# not committed to avoid bloating git history with ~37MB of WASM/model blobs.
+public/models/

@@ -1,0 +1,21 @@
+{
+  "name": "panicguard-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "setup:models": "node scripts/setup-models.mjs",
+    "postinstall": "node scripts/setup-models.mjs"
+  },
+  "dependencies": {
+    "@mediapipe/tasks-vision": "^0.10.17",
+    "fili": "^2.0.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10"
+  }
+}
