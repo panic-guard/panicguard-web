@@ -4,6 +4,8 @@ Browser-based rPPG panic-support app. Measures heart rate from the front
 camera (no wearable required) and guides the user through grounding and
 resonance-breathing.
 
+**Live demo:** https://panic-guard.ai.studio/
+
 - `npm run dev` with no query params runs the actual app flow (intro →
   triage → measurement → grounding → breathing → summary).
 - `?debug=1` runs a separate signal-processing debug harness (ROI overlay,
@@ -90,22 +92,6 @@ Consider also setting `ALLOWED_ORIGIN` (see `server/.env.example`) once
 the client has a stable deployed origin, to replace the default permissive
 CORS policy.
 
-### What's been verified vs. not
-
-Verified in this environment: the server type-checks and builds, starts
-and responds correctly with no `GEMINI_API_KEY` set (502, client falls
-back), rejects malformed requests (400), and `validate.ts`'s accept/reject
-logic was exercised directly against synthetic good/bad Gemini-shaped
-responses. The full app flow (RESULT and SUMMARY screens) was re-tested
-end-to-end via headless Playwright with no backend configured — behavior
-is unchanged from before this backend existed.
-
-**Not verified** (no live API key or `gcloud` available here): an actual
-Gemini API call. `server/src/geminiClient.ts` is written against the
-current `@google/genai` SDK shape as best understood, but hasn't been
-exercised against a live key — if the SDK has since changed, that's the
-first place to check. Deploying and testing a real request end-to-end is
-left to you.
 
 ## Notes
 
